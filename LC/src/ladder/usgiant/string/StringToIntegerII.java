@@ -1,4 +1,4 @@
-package ladder.string;
+package ladder.usgiant.string;
 
 // Implement function atoi to convert a string to an integer.
 // If no valid conversion could be performed, a zero value is returned.
