@@ -1,12 +1,19 @@
-package gg;
+package fb;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Design of a new data structure
+ * Operation on linked list
+ */
 public class LRUCache {
 
     private ListNode<Integer> dummyHead;
     private ListNode<Integer> dummyTail;
+    /**
+     * It would be much faster using Map<Integer, ListNode>
+     */
     private Map<Integer, Integer> keyToValueMap;
     private int capacity;
 
@@ -55,6 +62,9 @@ public class LRUCache {
 
     private void moveKeyToHeadOfTheList(int key) {
         ListNode<Integer> runningNode = dummyHead;
+        /**
+         * So Bad!
+         */
         while(runningNode != null) {
             if (runningNode.val == key) {
                 // remove current node
