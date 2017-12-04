@@ -16,6 +16,8 @@ public class SortColors_75 {
         int end = nums.length - 1;
 
         int running = 0;
+
+        // INVARIANT
         while (running <= end) {
             if (nums[running] == 0 && running != start) {
                 swap(nums, start++, running--);
