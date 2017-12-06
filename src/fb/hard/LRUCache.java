@@ -1,4 +1,4 @@
-package fb;
+package fb.hard;
 
 import java.util.HashMap;
 import java.util.Map;
