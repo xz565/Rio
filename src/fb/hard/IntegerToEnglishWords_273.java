@@ -18,6 +18,36 @@ import java.util.Map;
  */
 public class IntegerToEnglishWords_273 {
 
+
+    private static final String[] LESS_THEN_20= {"", "One", "Two", "Three", "Four",
+            "Five", "Six", "Seven", "Eight", "Nine", "Ten",
+            "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+            "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+
+    private static String[] TENTH = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty",
+            "Sixty", "Seventy", "Eighty", "Ninety"};
+
+    private static String[] THOUSAND = {"", "Thousand", "Million", "Billion"};
+
+    public static String numberToWords(int num) {
+        StringBuilder sb = new StringBuilder();
+
+        int thousandIdx = 0;
+        while (num > 0) {
+            String word = sb.toString();
+
+        }
+
+        return sb.toString().trim();
+    }
+
+    public static String helper(int num) {
+        StringBuilder sb = new StringBuilder();
+
+        return sb.toString().trim();
+    }
+
+
     private static Map<Integer, String> map = new HashMap<>();
     private static Map<Long, String> map2 = new LinkedHashMap<>();
 
@@ -48,7 +78,7 @@ public class IntegerToEnglishWords_273 {
     }
 
 
-    public static String numberToWords(int num) {
+    public static String numberToWords_bad(int num) {
 
         StringBuilder sb = new StringBuilder();
 

@@ -1,5 +1,8 @@
 package fb;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 import static org.junit.Assert.assertEquals;
 
 public class StrStr {
@@ -26,6 +29,7 @@ public class StrStr {
     }
 
     public static void main(String[] args) {
+        Deque<Integer> stack = new LinkedList<>();
         assertEquals(-1, strStr("q", "r"));
         assertEquals(1, strStr("qr", "r"));
         assertEquals(0, strStr("rq", "r"));
