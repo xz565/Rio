@@ -24,8 +24,12 @@ public class MinimumWindowSubstring_76 {
      *
      * Question to ask before:
      * Can T contain repeated chars ???
+     *
+     * Needs a clean logic and careful implementation of details
      */
     public static String minWindow(String s, String t) {
+        // Use array here will make it much faster
+        // int[] map = new int[256];
         Map<Character, Integer> targetCharMap = createTargetCharMap(t);
         String rst = "";
         int left = 0;
