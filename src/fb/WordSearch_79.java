@@ -3,7 +3,7 @@ package fb;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class WordSearch {
+public class WordSearch_79 {
 
     public static boolean exist(char[][] board, String word) {
 
@@ -30,10 +30,11 @@ public class WordSearch {
 
         if (!visited[i][j] && word.charAt(0) == board[i][j]) {
             visited[i][j] = true;
-            rst = dfsHelper(board, i + 1, j, word.substring(1), visited)
-                    || dfsHelper(board, i - 1, j, word.substring(1), visited)
-                    || dfsHelper(board, i, j + 1, word.substring(1), visited)
-                    || dfsHelper(board, i, j - 1, word.substring(1), visited);
+            String subWord = word.substring(1);
+            rst = dfsHelper(board, i + 1, j, subWord, visited)
+                    || dfsHelper(board, i - 1, j, subWord, visited)
+                    || dfsHelper(board, i, j + 1, subWord, visited)
+                    || dfsHelper(board, i, j - 1, subWord, visited);
             visited[i][j] = false;
         }
         return rst;
