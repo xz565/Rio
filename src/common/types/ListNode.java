@@ -1,4 +1,4 @@
-package utils;
+package common.types;
 
 public class ListNode {
     public int val;

@@ -1,6 +1,6 @@
 package fb;
 
-import utils.ListNode;
+import common.types.ListNode;
 
 // TODO add recursive solution
 public class ReverseLinkedList {
