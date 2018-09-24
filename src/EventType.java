@@ -1,0 +1,5 @@
+public enum EventType {
+
+    CUSTOMER_LOCATION_DATA,
+    SESSION_LOCATION_DATA
+}
