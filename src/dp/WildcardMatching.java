@@ -10,6 +10,7 @@ public class WildcardMatching {
      * '*' Matches any sequence of characters (including the empty sequence).
      */
     static Boolean[][] cache;
+    // TODO add cache
     public static boolean isMatch(String s, String p) {
 
         cache = new Boolean[s.length()][p.length()];
