@@ -4,6 +4,9 @@ public class NumberOfIslands_200 {
 
     // Search & Union Find
     // DFS or BFS
+    /**
+     * Follow up {@link unsorted.NumberofDistinctIslands_694}
+     */
     public static int numIslands(char[][] grid) {
         if (grid.length == 0) return 0;
 
@@ -22,17 +25,17 @@ public class NumberOfIslands_200 {
     }
 
     private static void dfsMarking(char[][] grid, boolean[][] visited, int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || visited[i][j]) {
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || visited[i][j] || grid[i][j] == '0') {
             return;
         }
         visited[i][j] = true;
 
-        if (grid[i][j] == '1') {
+//        if (grid[i][j] == '1') {
             dfsMarking(grid, visited, i + 1, j); // DOWN
             dfsMarking(grid, visited, i, j + 1); // RIGHT
             dfsMarking(grid, visited, i, j - 1); // LEFT
             dfsMarking(grid, visited, i - 1, j); // UP
-        }
+//        }
     }
 
     public static void main(String[] args) {
