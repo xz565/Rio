@@ -2,7 +2,9 @@ package oa;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class PrimesInSubtree {
 
@@ -23,7 +25,7 @@ public class PrimesInSubtree {
         List<Integer> rst = new ArrayList<>();
 
         // create nodes
-        TreeNode[] treeNodes = new TreeNode[n+1];
+        TreeNode[] treeNodes = new TreeNode[n + 1];
         for (int i = 1; i <= n; i++) {
             treeNodes[i] = new PrimesInSubtree.TreeNode(values.get(i-1), i);
         }
@@ -34,30 +36,34 @@ public class PrimesInSubtree {
             treeNodes[second.get(i)].children.add(treeNodes[first.get(i)]);
         }
 
+        // build tree
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(treeNodes[1]);
+        while (!queue.isEmpty()) {
+            for (int i = 0; i < queue.size(); i++) {
+                TreeNode curt = queue.poll();
+                for (TreeNode child : curt.children) {
+                    child.children.remove(curt);
+                    queue.offer(child);
+                }
+            }
+        }
+
         // count primes in subtree
-//        countPrimes(treeNodes[1]);
+        countPrimes(treeNodes[1]);
 
         // query
         for (int i = 0; i < queries.size(); i++) {
-            boolean[] visited = new boolean[n];
-            rst.add(countPrimes(treeNodes[queries.get(i)], visited));
-//            rst.add(treeNodes[queries.get(i)].numberOfPrimesInSubtree);
+            rst.add(treeNodes[queries.get(i)].numberOfPrimesInSubtree);
         }
 
         return rst;
     }
 
-    private static int countPrimes(TreeNode treeNode, boolean[] visited) {
-        // leaf node
-//        if (treeNodes[curtNode].children.isEmpty()) {
-//            return 0;
-//        }
-        if (visited[treeNode.nodeNumber - 1]) return 0;
-        visited[treeNode.nodeNumber - 1] = true;
-
+    private static int countPrimes(TreeNode treeNode) {
         int count = 0;
         for (TreeNode child : treeNode.children) {
-            count += countPrimes(child, visited);
+            count += countPrimes(child);
         }
 
 
