@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class CustomerLocationData {
 
     EventType eventType;
-    String marketplaceId;
+    MarketplaceId marketplaceId;
     String customerId;
     String sessionId;
     String contextId;
@@ -23,7 +23,7 @@ public class CustomerLocationData {
         return eventType;
     }
 
-    public String getMarketplaceId() {
+    public MarketplaceId getMarketplaceId() {
         return marketplaceId;
     }
 

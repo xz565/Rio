@@ -24,7 +24,7 @@ public class Test {
 
         CustomerLocationData data = new CustomerLocationData();
         data.eventType = EventType.CUSTOMER_LOCATION_DATA;
-        data.marketplaceId = "ATVPDKIKX0DER";
+        data.marketplaceId = new MarketplaceId("ATVPDKIKX0DER");
         data.customerId = "A36NJBPMDXYFFL";
         data.sessionId = "145-0155562-7196542";
         data.contextId = "unifiedLocationContext";
