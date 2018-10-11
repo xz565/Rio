@@ -10,52 +10,38 @@ public class FlattenNestedListIterator_341 {
 
 }
 
-class NestedIterator implements Iterator<Iterator> {
+class NestedIterator implements Iterator<Integer> {
 
-    public NestedIterator() {
+    private List<Integer> elements;
+    private int curt = 0;
 
+    // TODO use stack to NOT interate the whole list in constructor
+    public NestedIterator(List<NestedInteger> nestedList) {
+        elements = new ArrayList<>();
+        for (NestedInteger nestedInteger : nestedList) {
+            elements.addAll(getInteger(nestedInteger));
+        }
+    }
+
+    private List<Integer> getInteger(NestedInteger nestedInteger) {
+        List<Integer> ele = new ArrayList<>();
+        if (nestedInteger.isInteger()) {
+            ele.add(nestedInteger.getInteger());
+        } else {
+            for (NestedInteger nestedInteger1 : nestedInteger.getList()) {
+                ele.addAll(getInteger(nestedInteger1));
+            }
+        }
+        return ele;
     }
 
     @Override
     public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public Iterator next() {
-        return null;
-    }
-}
-
-class NestedIterator_2 implements Iterator<Integer> {
-
-    private List<Integer> list;
-    private Iterator<Integer> it;
-
-    public NestedIterator_2(List<NestedInteger> nestedList) {
-        list = new ArrayList<>();
-        createList(nestedList);
-        it = list.iterator();
-    }
-
-    private void createList(List<NestedInteger> nestedList) {
-        for (NestedInteger ni : nestedList) {
-            if (ni.isInteger()) {
-                list.add(ni.getInteger());
-            } else {
-                createList(ni.getList());
-            }
-        }
+        return curt < elements.size();
     }
 
     @Override
     public Integer next() {
-        return it.next();
+        return elements.get(curt++);
     }
-
-    @Override
-    public boolean hasNext() {
-        return it.hasNext();
-    }
-
 }
